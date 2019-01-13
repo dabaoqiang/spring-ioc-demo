@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:javaee="http://java.sun.com/xml/ns/javaee"
+         xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+         version="2.4">
+
+    <display-name>spring-ioc-demo</display-name>
+
+    <!-- 每一个servlet都是一个httpServlet请求 -->
+    <servlet>
+        <!-- 处理请求的名称-->
+        <servlet-name>spring-ioc</servlet-name>
+        <!-- 处理的类-->
+        <servlet-class>com.xxq.vip.spring.servlet.GPDispatcherServlet</servlet-class>
+        <!-- 单个servlet下面配置的参数-->
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>classpath:applicationContext.properties</param-value>
+        </init-param>
+        <!-- 初始化加载-->
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <!-- servlet所对应的url -->
+    <servlet-mapping>
+        <servlet-name>spring-ioc</servlet-name>
+        <url-pattern>/*</url-pattern>
+    </servlet-mapping>
+
+</web-app>
